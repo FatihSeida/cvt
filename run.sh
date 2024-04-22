@@ -23,7 +23,7 @@ test() {
 
 ############################ Main #############################
 GPUS=`nvidia-smi -L | wc -l`
-MASTER_PORT=9000
+MASTER_PORT=29500
 INSTALL_DEPS=false
 
 while [[ $# -gt 0 ]]
