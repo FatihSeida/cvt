@@ -11,8 +11,10 @@ import time
 import torch
 import torch.nn.parallel
 import torch.optim
+import multiprocessing as mp
 from torch.utils.collect_env import get_pretty_env_info
 from tensorboardX import SummaryWriter
+
 
 import _init_paths
 from config import config
@@ -208,4 +210,6 @@ def main():
 
 
 if __name__ == '__main__':
+    mp.set_start_method('spawn')
+    print("CUDA_VISIBLE_DEVICES:", os.environ.get("CUDA_VISIBLE_DEVICES"))
     main()

@@ -33,7 +33,7 @@ AUG:
   MIXUP: 0.8
   MIXCUT: 1.0
   TIMM_AUG:
-    USE_LOADER: true
+    USE_LOADER: false
     RE_COUNT: 1
     RE_MODE: pixel
     RE_SPLIT: false

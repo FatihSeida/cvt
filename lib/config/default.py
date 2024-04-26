@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import os.path as op
 import yaml
+import multiprocessing as mp
 from yacs.config import CfgNode as CN
 
 from lib.utils.comm import comm
@@ -197,6 +198,7 @@ def save_config(cfg, path):
 
 
 if __name__ == '__main__':
+    mp.set_start_method('spawn')
     import sys
     with open(sys.argv[1], 'w') as f:
         print(_C, file=f)

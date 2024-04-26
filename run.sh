@@ -1,6 +1,11 @@
 #!/bin/bash
 
 train() {
+    export NCCL_DEBUG=WARN
+    # Dynamically set CUDA_VISIBLE_DEVICES based on the node rank and number of GPUs per node
+    export CUDA_VISIBLE_DEVICES=$(seq -s, $RANK $(($RANK+$GPUS-1)))
+    echo "Setting CUDA_VISIBLE_DEVICES to $CUDA_VISIBLE_DEVICES for rank $RANK"
+
     python -m torch.distributed.run \
         --nnodes ${NODE_COUNT} \
         --node_rank ${RANK} \

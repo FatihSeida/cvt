@@ -38,8 +38,8 @@ AUG:
     RE_MODE: pixel
     RE_PROB: 0.25
     RE_SPLIT: false
-    USE_LOADER: true
-    USE_TRANSFORM: false
+    USE_LOADER: false
+    USE_TRANSFORM: true
     VFLIP: 0.0
 BASE:
 - ''
@@ -51,7 +51,7 @@ DATASET:
   DATASET: imagenet
   DATA_FORMAT: jpg
   LABELMAP: ''
-  ROOT: D:\YoloV8\DATASET\imagenet
+  ROOT: /content/drive/My Drive/DATASET/imagenet
   SAMPLER: default
   TARGET_SIZE: -1
   TEST_SET: val
@@ -71,7 +71,7 @@ FINETUNE:
   LR_SCHEDULER:
     DECAY_TYPE: step
   TRAIN_MODE: true
-  USE_TRAIN_AUG: false
+  USE_TRAIN_AUG: true
 GPUS:
 - 0
 INPUT:
@@ -203,7 +203,7 @@ TRAIN:
   IMAGE_SIZE:
   - 384
   - 384
-  LR: 0.000125
+  LR: 0.00025
   LR_SCHEDULER:
     ARGS:
       cooldown_epochs: 10
